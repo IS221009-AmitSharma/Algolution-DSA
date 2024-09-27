@@ -134,8 +134,6 @@ int findKthLargest(int arr[], int n, int k) {
             }
         }
 
-        // After finding the max element, mark it as a very small number
-        // so it is ignored in the next iteration
         for (int j = 0; j < n; j++) {
             if (arr[j] == maxElement) {
                 arr[j] = MIN_VALUE;
