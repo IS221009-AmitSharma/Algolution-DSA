@@ -1,6 +1,60 @@
 #include <iostream>
 using namespace std;
 
+
+void insert(int myArray[], int &n, int value) {
+    if (n == 100) {
+        cout << "Heap is full. Cannot insert!" << endl;
+        return;
+    }
+
+    n++;
+    myArray[n - 1] = value;
+
+    int i = n - 1;
+    while (i != 0 && myArray[(i - 1) / 2] < myArray[i]) {
+        swap(myArray[i], myArray[(i - 1) / 2]);
+        i = (i - 1) / 2;
+    }
+}
+
+
+void print(int heap[], int n) {
+    for (int i = 0; i < n; i++)
+        cout << heap[i] << " ";
+    cout << endl;
+}
+
+int main() {
+    
+    int arr[5] = {20, 15, 30, 40, 10};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    int myArray[100];
+    int n = 0;
+    
+for(int i = 0; i < size ; i++){
+        insert(myArray, n, arr[i]);
+    }
+    
+    // insert(myArray, n, 20);
+    // insert(myArray, n, 15);
+    // insert(myArray, n, 30);
+    // insert(myArray, n, 40);
+    // insert(myArray, n, 10);
+
+    cout << "Max-Heap array after insertions: ";
+    print(myArray, n);
+
+    return 0;
+}
+
+
+
+// 2nd approach
+
+#include <iostream>
+using namespace std;
+
 void heap(int myArray[], int n, int i) {
     while (true) {
         int largest = i;
@@ -61,3 +115,4 @@ int main() {
 
     return 0;
 }
+
