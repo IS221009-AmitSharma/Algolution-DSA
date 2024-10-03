@@ -553,7 +553,7 @@ void printPattern(int rows) {
             printf("%d", j);
         }
         
-        for (int k = rows; k > i + 1; k--) {
+        for (int k = 0; k < i; k++) {
             printf("%d", rows);
         }
         
@@ -563,12 +563,10 @@ void printPattern(int rows) {
 
 int main() {
     int rows;
-    
-    
+
     printf("Enter the number of rows: ");
     scanf("%d", &rows);
 
-    
     printPattern(rows);
 
     return 0;
